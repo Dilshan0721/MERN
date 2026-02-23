@@ -1,18 +1,38 @@
-import "./App.css";
-import Images from "./component/Images";
-import H1 from "./component/h1";
-import Button from "./component/Button";
+import { useEffect } from "react";
 import { useState } from "react";
-import Para from "./component/Para";
+import Form from "./component/Form";
 
 function App() {
-  const [count, setCount] = useState(0);
+
+const [studentData, setStudent] = useState([]);
+
+ async function getStudent() {
+    const data = await fetch("http://localhost:3000/student");
+
+    const student = await data.json();
+    setStudent(student);
+    
+  }
+
+  console.log(studentData);
+
+  useEffect(() => {
+    getStudent();
+  }, []);
+
   return (
     <>
-      <Images />
-      <H1 />
-      <Button count={count} setCount={setCount} />
-      <Para />
+      <div>
+        <h1>Student</h1>
+        {
+          studentData.map((student) => {
+            return (
+            <li>{student.id}-{student.name}-{student.age}</li>
+          );
+          })
+        }
+      </div>
+      <Form />
     </>
   );
 }

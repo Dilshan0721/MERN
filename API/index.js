@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+//enable cors
+app.use(cors());
 
 //middleware
 app.use(express.json());
@@ -47,7 +51,7 @@ const student = [
     age: 25,
   },
 
-  { id: 2, name: "Dilshan", age: 15 },
+  { id: 2, name: "Dilshan", age: 25 },
 ];
 
 app.get("/student", (req, res) => {
@@ -57,7 +61,7 @@ app.get("/student", (req, res) => {
 //check the post request and add a new student to the array
 app.post("/student", (req, res) => {
   const { name, age } = req.body;
-  const id=student.length >0 ? student[student.length - 1].id + 1 : 1;
+  const id = student.length > 0 ? student[student.length - 1].id + 1 : 1;
   student.push({ id, name, age });
   res.json("Student added successfully");
 });
