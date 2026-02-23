@@ -1,0 +1,27 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "Mern project",
+  "homepage": "https://github.com/Dilshan0721/MERN#readme",
+  "bugs": {
+    "url": "https://github.com/Dilshan0721/MERN/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dilshan0721/MERN.git"
+  },
+  "license": "ISC",
+  "author": "Kavindu",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js" 
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
